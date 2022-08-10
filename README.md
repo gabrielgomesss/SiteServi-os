@@ -1,3 +1,4 @@
+# Site Serviços
 Projeto em linguagem React, no qual consiste em ter um banco de dados com informações de prestadores de serviços em diferentes areas, para que futuros clientes entrem em contato para futuros reparos ou serviços.
 
 O projeto possui criação e autenticação de usuário.</br></br>

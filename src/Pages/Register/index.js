@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Auth ,createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
-import { collection, doc, getDoc, setDoc } from '@firebase/firestore';
-import { auth, db} from '../../firebaseConnection'
 import { AuthContext } from '../Context/AuthContext'
-import { Navigate } from 'react-router-dom'
+import { PurpleBackground100VH } from '../../Styles/PurpleBackground';
+import { BackButtonRegister, RegisterBox, Separator, Inputs, Subs, Title, RegisterButton} from '../../Styles/RegisterBox';
 
 
 
@@ -15,6 +13,7 @@ function Register(){
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
+    const [photo, setPhoto] = useState(null);
     const { SignUp } = useContext(AuthContext)
 
     function HandleSubmit(e){
@@ -23,16 +22,22 @@ function Register(){
     }
 
     return(
-        <div>
-            <h1>Teste</h1>
-            <form onSubmit={HandleSubmit}>
-                <input onChange={(e)=>setEmail(e.target.value)}></input>
-                <input onChange={(e)=>setPassword(e.target.value)}></input>
-                <input onChange={(e)=>setName(e.target.value)}></input>
-                <input onChange={(e)=>setSurname(e.target.value)}></input>
-                <button type="submit">Cadastrar</button>
-            </form>
-        </div>
+        <PurpleBackground100VH>
+                <Title style={{marginBottom: '1%'}}>Se cadastre já</Title>
+                    <Subs>Preencha os dados abaixo</Subs>
+                <RegisterBox onSubmit={HandleSubmit}>
+                    <Separator>
+                        <Inputs placeholder={'Email'} onChange={(e)=>setEmail(e.target.value)}></Inputs>
+                        <Inputs placeholder={'Senha'} onChange={(e)=>setPassword(e.target.value)}></Inputs>
+                    </Separator>
+                    <Separator>
+                        <Inputs placeholder={'Nome'} onChange={(e)=>setName(e.target.value)}></Inputs>
+                        <Inputs placeholder={'Sobrenome'} onChange={(e)=>setSurname(e.target.value)}></Inputs>
+                    </Separator>
+                    <RegisterButton type="submit">Cadastrar</RegisterButton>
+                    <BackButtonRegister href='/' href='/'>Voltar</BackButtonRegister>
+                </RegisterBox>
+        </PurpleBackground100VH>
     )
 }
 

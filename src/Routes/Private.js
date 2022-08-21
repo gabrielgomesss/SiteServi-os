@@ -37,6 +37,7 @@ function Private({children}){
         return <Navigate to="/" />
     }
     return children;
+
 }
 
 export default Private;

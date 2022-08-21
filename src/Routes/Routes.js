@@ -8,7 +8,6 @@ import Register from '../Pages/Register/index'
 import Private from './Private';
 
 function RoutesApp(){
-    const { user, loading } = useContext(AuthContext)
     return(
     <Routes>
         <Route path="/" element={ <Login />} ></Route>
